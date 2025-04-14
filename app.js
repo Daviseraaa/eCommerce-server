@@ -41,6 +41,9 @@ sequelize.authenticate()
     .catch(err => console.error('Lỗi kết nối PostgreSQL:', err))
 
 // Cấu hình router, api
+app.get('/', (req, res) => {
+    res.send("server api")
+})
 app.use('/api/user', userAPI);
 app.use('/auth', authAPI)
 app.use('/api/products', productAPI)
