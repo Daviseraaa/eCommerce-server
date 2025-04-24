@@ -2,7 +2,7 @@ const db = require("../models")
 
 const { Product, Shop, Item } = db
 const slugify = require('slugify')
-const Op = db.Sequelize
+const { Op } = require('sequelize')
 
 // Hàm helper lấy thông tin phân trang
 const getPagination = (page, size) => {
@@ -41,13 +41,13 @@ const generateUniqueSlug = async (baseSlug) => {
 // Thêm mới sản phẩm
 const createProduct = async (req, res) => {
   try {
-    // Validate request (Nên dùng thư viện như Joi hoặc express-validator)
+
     if (!req.body.title || !req.body.shop_id) {
       return res.status(400).send({ message: "Tiêu đề và shop_id không được để trống!" });
     }
 
     // Tạo slug từ title
-    const productSlug = generateUniqueSlug(slugify(req.body.title, { lower: true, strict: true }));
+    const productSlug = await generateUniqueSlug(slugify(req.body.title, { lower: true, strict: true }));
 
     // Dữ liệu sản phẩm mới
     const productData = {
@@ -100,7 +100,7 @@ const getProductById = async (req, res) => {
 
   try {
     const product = await Product.findByPk(id
-       // , { include: [...] } // Join các bảng liên quan nếu cần
+       // , { include: [...] }
        );
 
     if (product) {

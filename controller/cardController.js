@@ -1,6 +1,6 @@
 const db = require("../models");
-const { sequelize ,Cart, Item, Product, Shop, User } = db;
-const { Op } = sequelize;
+const { Cart, Item, Product, Shop, User } = db;
+const { Op } = require('sequelize');
 
 // Lấy toàn bộ giỏ hàng của người dùng
 const getCart = async (req, res) => {

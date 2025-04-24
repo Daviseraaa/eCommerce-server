@@ -28,7 +28,7 @@ app.use(cors({
 
 // Xử lý bảo mật và xác thực
 app.use(sanitize.sanitizeBody)
-app.use('/api', auth.authenticateToken)
+//app.use('/api', auth.authenticateToken)
 
 // Middleware xử lý form
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -40,10 +40,10 @@ sequelize.authenticate()
     .then(() => console.log('Kết nối PostgreSQL thành công!'))
     .catch(err => console.error('Lỗi kết nối PostgreSQL:', err))
 
-// Cấu hình router, api
 app.get('/', (req, res) => {
     res.send("server api")
-})
+})   
+// Cấu hình router, api
 app.use('/api/user', userAPI);
 app.use('/auth', authAPI)
 app.use('/api/products', productAPI)
