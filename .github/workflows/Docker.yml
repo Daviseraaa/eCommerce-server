@@ -32,4 +32,4 @@ jobs:
           context: .
           file: ./Dockerfile  # Đảm bảo Dockerfile của bạn có tên là Dockerfile và nằm ở thư mục gốc
           push: true          # Đẩy image lên Docker Hub sau khi build
-          tags: daviseraaa/eCommerce-server:latest
+          tags: daviseraaa/ecommerce-server:latest
