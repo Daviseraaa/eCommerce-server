@@ -374,7 +374,7 @@ const updateOrderStatus = async (req, res) => {
   const userId = req.user.user_id;
   const userRole = req.user.role;
   const orderId = req.params.orderId;
-  const { status: newStatus, tracking_number } = req.body; // Allow updating tracking number when shipping
+  const { status: newStatus, tracking_number } = req.body;
 
   // --- Xác thực ---
   if (!newStatus) {
