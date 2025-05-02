@@ -42,7 +42,7 @@ sequelize.authenticate()
     .catch(err => console.error('Lỗi kết nối PostgreSQL:', err))
 
 app.get('/', (req, res) => {
-    res.send("server api alive")
+    res.send("server api still alive")
 })   
 // Cấu hình router, api
 app.use('/api/user', userAPI);
